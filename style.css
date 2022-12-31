@@ -1,0 +1,148 @@
+body {
+    margin: 0;
+    font-family: impact;
+    background-color: aqua;
+}
+
+a {
+    color: brown;
+}
+
+.header {
+    background-color: azure;
+    box-shadow: 1px 1px 4px red;
+    position: fixed;
+    width: 100%;
+    z-index: 1;
+}
+
+.header ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    background-color: cornflowerblue;
+}
+
+.header ul a {
+    display: block;
+    padding: 15px;
+    text-decoration: none;
+    border: 1px solid rgb(207, 193, 0);
+}
+
+.header ul a:hover {
+    background-color: rgb(26, 67, 145);
+    border: 3px solid rgb(14, 241, 222);
+    color: rgba(255, 255, 255, 0.664);
+}
+
+.header ul a:visited {
+    color: white;
+   font-weight: bold;
+    
+}
+
+.header ul a:focus {
+  text-decoration: underline;
+    
+}
+
+.header ul a:active {
+    color: rgb(240, 70, 70);
+    
+}
+
+.header .logo {
+    /*stilazzione del logo */
+    float: left;
+    font-size: 25px;
+    padding: 10px 20px;
+}
+
+.header .menu {
+    clear: both;
+    max-height: 0;
+    transition: max-height .2s ease-in-out;
+}
+
+.header .menu-icon {
+    padding: 20px 20px;
+    position: relative;
+    float: right;
+    cursor: pointer;
+}
+
+.header .menu-icon .nav-icon {
+    background-color: black;
+    display: block;
+    width: 18px;
+    height: 2px;
+    position: relative;
+    transition: background-color .2s ease-in-out;
+}
+
+.header .menu-icon .nav-icon::before,
+.header .menu-icon .nav-icon::after {
+    background-color: black;
+    content: "";
+    display: block;
+    height: 100%;
+    width: 100%;
+    transition: all .2s ease-in-out;
+    position: absolute;
+    top: 5px;
+}
+
+.header .menu .nav-icon::before {
+    top: 5px;
+}
+
+.header .menu-icon .nav-icon::after {
+    top: -5px;
+}
+
+.header .menu-btn {
+    display: none;
+}
+
+.header .menu-btn:checked~.menu {
+    max-height: 240px;
+}
+
+
+
+.header .menu-btn:checked~.menu-icon .nav-icon {
+    background-color: transparent;
+}
+
+.header .menu-btn:checked~.menu-icon .nav-icon:before { /*quando avrà la spunta l'ultima lineaa ruoterà di 45 gradi e rimarrà con il top a 0 */
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+.header .menu-btn:checked~.menu-icon .nav-icon::after{
+    transform: rotate(45deg);
+    top: 0;
+}
+
+@media (min-width:360) and (min-height:640) {
+    .header li {
+       float: left; 
+    }
+
+    .header li a {
+        padding: 20px 30px;
+    }
+
+    .header .menu {
+        clear: none;
+        float: right;
+        max-height: 0;
+    }
+
+    .header .menu-icon {
+        display: none;
+    }
+
+}
